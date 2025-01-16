@@ -1,89 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatroom with About Blank</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #f5f5f5;
-    }
-    #chatroom {
-      width: 80%;
-      height: 60%;
-      border: 1px solid #ccc;
-      overflow-y: auto;
-      margin-bottom: 10px;
-      padding: 10px;
-      background: white;
-    }
-    input[type="text"] {
-      width: 70%;
-      padding: 10px;
-      border: 1px solid #ccc;
-    }
-    button {
-      padding: 10px 15px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    .btn-about-blank {
-      margin-bottom: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Chat Room</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 20px;
+        }
+        #chatButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <h1>Chatroom</h1>
-  <button class="btn-about-blank" onclick="openAboutBlank()">Open About:Blank</button>
-  <div id="chatroom"></div>
-  <input type="text" id="messageInput" placeholder="Type your message here..." />
-  <button onclick="sendMessage()">Send</button>
+    <h1>Welcome to the Chat Room</h1>
+    <button id="chatButton">Open Chat Room</button>
 
-  <script>
-    const chatroomDiv = document.getElementById('chatroom');
-    const messageInput = document.getElementById('messageInput');
-
-    // Function to open an about:blank tab
-    function openAboutBlank() {
-      window.open('about:blank', '_blank');
-    }
-
-    // Local array to store messages (emulates chat functionality)
-    const messages = [];
-
-    // Function to send a message
-    function sendMessage() {
-      const message = messageInput.value.trim();
-      if (message) {
-        messages.push(message);
-        displayMessages();
-        messageInput.value = '';
-      }
-    }
-
-    // Function to display messages
-    function displayMessages() {
-      chatroomDiv.innerHTML = ''; // Clear the chatroom
-      messages.forEach((msg) => {
-        const messageElement = document.createElement('div');
-        messageElement.textContent = msg;
-        chatroomDiv.appendChild(messageElement);
-      });
-      chatroomDiv.scrollTop = chatroomDiv.scrollHeight; // Auto-scroll to the bottom
-    }
-  </script>
+    <script src="chat.js"></script>
 </body>
 </html>
